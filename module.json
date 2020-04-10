@@ -1,0 +1,17 @@
+{
+    "alias": "africas-talking",
+    "icon": "fa fa-cog",
+    "version": "1.0.0",
+    "category": "accounting",
+    "active": 1,
+    "providers": [
+        "Modules\\AfricasTalking\\Providers\\Event",
+        "Modules\\AfricasTalking\\Providers\\Main"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": [],
+    "reports": [],
+    "widgets": [],
+    "settings": []
+}

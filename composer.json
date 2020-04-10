@@ -1,0 +1,25 @@
+{
+    "name": "akaunting/africas-talking",
+    "description": "",
+    "authors": [
+        {
+            "name": "Akaunting",
+            "email": "info@akaunting.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\AfricasTalking\\": ""
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\AfricasTalking\\Providers\\Main"
+            ],
+            "aliases": {
+                
+            }
+        }
+    }
+}
