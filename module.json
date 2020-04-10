@@ -1,7 +1,7 @@
 {
     "alias": "africas-talking",
     "icon": "fa fa-cog",
-    "version": "1.0.0",
+    "version": "1.20.4",
     "category": "accounting",
     "active": 1,
     "providers": [
@@ -13,5 +13,41 @@
     "requires": [],
     "reports": [],
     "widgets": [],
-    "settings": []
+    "settings": [
+        {
+            "type": "textGroup",
+            "name": "shortcode",
+            "title": "africas-talking::general.form.shortcode",
+            "icon": "plane",
+            "attributes": {
+                "required": "required"
+            }
+        },
+        {
+            "type": "textGroup",
+            "name": "username",
+            "title": "africas-talking::general.form.username",
+            "icon": "envelope",
+            "attributes": {
+                "required": "required"
+            }
+        },
+        {
+            "type": "textGroup",
+            "name": "key",
+            "title": "africas-talking::general.form.key",
+            "icon": "envelope",
+            "attributes": {
+                "required": "required"
+            }
+        },
+        {
+            "type": "radioGroup",
+            "name": "live",
+            "title": "africas-talking::general.form.live",
+            "enable": "general.yes",
+            "disable": "general.no",
+            "attributes": {}
+        }
+    ]
 }
