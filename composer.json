@@ -7,6 +7,9 @@
             "email": "info@akaunting.com"
         }
     ],
+    "require": {
+        "africastalking/africastalking": "^2.3"
+    },
     "autoload": {
         "psr-4": {
             "Modules\\AfricasTalking\\": ""
