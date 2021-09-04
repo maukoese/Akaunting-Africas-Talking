@@ -2,11 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group([
-    'middleware' => 'admin',
-    'namespace' => 'Modules\AfricasTalking\Http\Controllers'
-], function () {
-    Route::prefix('africas-talking')->group(function() {
-        // Route::get('/', 'Main@index');
-    });
-});
+Route::admin(
+    'africas-talking',
+    function () {
+        // Send
+        Route::get('/send', 'Send')->name('send.index');
+        Route::post('/send', 'Send@handle')->name('send');
+        Route::post('/send/customer', 'Send@toCustomer')->name('send.customer');
+
+        // Logs
+        Route::get('/logs', 'Log')->name('logs');
+        Route::get('/logs/{log}/status', 'Log@checkStatus')->name('logs.checkStatus');
+    }
+);

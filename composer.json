@@ -3,26 +3,40 @@
     "description": "",
     "authors": [
         {
-            "name": "Akaunting",
-            "email": "info@akaunting.com"
+            "name": "Burak Çakırel",
+            "email": "burakcakirel@gmail.com"
         }
     ],
     "require": {
-        "africastalking/africastalking": "^2.3"
+        "africastalking/africastalking": "^3.0",
+        "giggsey/libphonenumber-for-php": "^8.10",
+        "league/iso3166": "^2.0"
+    },
+    "replace": {
+        "guzzlehttp/guzzle": "*",
+        "guzzlehttp/psr7": "*",
+        "laravel/framework": "*",
+        "symfony/http-foundation": "*"
     },
     "autoload": {
         "psr-4": {
             "Modules\\AfricasTalking\\": ""
-        }
+        },
+        "files": [
+            "Override/Phone/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {
             "providers": [
                 "Modules\\AfricasTalking\\Providers\\Main"
             ],
-            "aliases": {
-                
-            }
+            "aliases": {}
         }
+    },
+    "scripts": {
+        "test": [
+            "composer install --prefer-dist --no-interaction --no-scripts --no-suggest --no-progress --no-ansi"
+        ]
     }
 }

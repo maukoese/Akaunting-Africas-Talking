@@ -1,8 +1,8 @@
 {
     "alias": "africas-talking",
-    "icon": "fa fa-cog",
-    "version": "1.20.4",
-    "category": "accounting",
+    "icon": "fa fa-mobile-alt",
+    "version": "1.0.0",
+    "category": "notification",
     "active": 1,
     "providers": [
         "Modules\\AfricasTalking\\Providers\\Event",
@@ -16,38 +16,71 @@
     "settings": [
         {
             "type": "textGroup",
-            "name": "shortcode",
-            "title": "africas-talking::general.form.shortcode",
-            "icon": "plane",
-            "attributes": {
-                "required": "required"
-            }
-        },
-        {
-            "type": "textGroup",
             "name": "username",
-            "title": "africas-talking::general.form.username",
-            "icon": "envelope",
+            "title": "africas-talking::general.username",
+            "icon": "fas fa-lock",
             "attributes": {
                 "required": "required"
-            }
+            },
+            "rules": "required|string"
         },
         {
             "type": "textGroup",
             "name": "key",
-            "title": "africas-talking::general.form.key",
-            "icon": "envelope",
+            "title": "africas-talking::general.key",
+            "icon": "fas fa-key",
             "attributes": {
                 "required": "required"
-            }
+            },
+            "rules": "required|string"
+        },
+        {
+            "type": "textGroup",
+            "name": "from",
+            "title": "africas-talking::general.from",
+            "icon": "fas fa-font",
+            "attributes": {},
+            "rules": "required|string"
+        },
+        {
+            "type": "selectGroup",
+            "name": "mode",
+            "title": "africas-talking::general.mode",
+            "icon": "plane",
+            "values": {
+                "live": "Live",
+                "sandbox": "Sandbox"
+            },
+            "selected": "live",
+            "attributes": {
+                "required": "required"
+            },
+            "rules": "required|string"
         },
         {
             "type": "radioGroup",
-            "name": "live",
-            "title": "africas-talking::general.form.live",
+            "name": "show_balance",
+            "title": "africas-talking::general.show_balance",
             "enable": "general.yes",
             "disable": "general.no",
-            "attributes": {}
+            "attributes": {},
+            "rules": "required|integer"
+        },
+        {
+            "type": "radioGroup",
+            "name": "send_with_invoice",
+            "title": "africas-talking::general.send_with_invoice",
+            "enable": "general.yes",
+            "disable": "general.no",
+            "attributes": {},
+            "rules": "required|integer"
+        },
+        {
+            "type": "textareaGroup",
+            "name": "invoice_message",
+            "title": "africas-talking::general.message",
+            "attributes": {},
+            "rules": "required|string"
         }
     ]
 }

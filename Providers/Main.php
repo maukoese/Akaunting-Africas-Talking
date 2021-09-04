@@ -3,6 +3,8 @@
 namespace Modules\AfricasTalking\Providers;
 
 use Illuminate\Support\ServiceProvider as Provider;
+use Modules\AfricasTalking\Override\Phone\PhoneServiceProvider;
+use Modules\AfricasTalking\Services\AfricasTalking;
 
 class Main extends Provider
 {
@@ -16,7 +18,7 @@ class Main extends Provider
         $this->loadViews();
         $this->loadTranslations();
         $this->loadMigrations();
-        $this->loadFactories();
+        //$this->loadConfig();
     }
 
     /**
@@ -27,6 +29,20 @@ class Main extends Provider
     public function register()
     {
         $this->loadRoutes();
+        $this->registerDependencies();
+    }
+
+    public function registerDependencies()
+    {
+        $this->app->singleton(AfricasTalking::class, function ($app) {
+            return new AfricasTalking(
+                setting('africas-talking.key'),
+                setting('africas-talking.username'),
+                setting('africas-talking.from')
+            );
+        });
+
+        $this->app->register(PhoneServiceProvider::class);
     }
 
     /**
@@ -60,17 +76,13 @@ class Main extends Provider
     }
 
     /**
-     * Load factories.
+     * Load config.
      *
      * @return void
      */
-    public function loadFactories()
+    public function loadConfig()
     {
-        if (app()->environment('production') || !app()->runningInConsole()) {
-            return;
-        }
-
-        $this->loadFactoriesFrom(__DIR__ . '/../Database/Factories');
+        $this->mergeConfigFrom(__DIR__ . '/../Config/config.php', 'africas-talking');
     }
 
     /**
@@ -86,7 +98,6 @@ class Main extends Provider
 
         $routes = [
             'admin.php',
-            'portal.php',
         ];
 
         foreach ($routes as $route) {

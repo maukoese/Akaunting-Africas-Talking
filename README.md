@@ -1,1 +1,0 @@
-# Akaunting Africas Talking
